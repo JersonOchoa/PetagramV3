@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary"
+    android:elevation="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+
+    >
+
+    <ImageButton
+        android:id="@+id/imgActionBarLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/contentLogo"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dog_paw" />
+
+    <TextView
+        android:id="@+id/txtActionBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/app_name"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/background_dark"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:paddingStart="60dp"
+        android:paddingEnd="10dp"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/btnVerLikes"
+        android:contentDescription="@string/contentBtnVerLikes"
+        android:src="@drawable/icons8_star_50"
+        android:background="@android:color/transparent"
+        android:paddingStart="100dp"
+        android:paddingEnd="10dp"
+        android:onClick="VerLikes"
+        />
+</Toolbar>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="contentLogo">Logo Petagram</string>
+    <string name="namePreviewCV">Caballo</string>
+    <string name="likesPreviewCV">10</string>
+    <string name="contentBtnVerLikes">Ver likes</string>
+</resources>
