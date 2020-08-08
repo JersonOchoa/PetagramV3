@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toolbar;
 
+import com.lumenford.petagramv2.adapter.MascotaAdaptador;
+
 import java.util.ArrayList;
 
 public class VerLikes extends AppCompatActivity {
@@ -19,22 +21,7 @@ public class VerLikes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_likes);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.miActionBar2);
-        setActionBar(toolbar);
-
-        this.getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setDisplayShowTitleEnabled(false);
-        //this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-
+        
         listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas2);
 
         LinearLayoutManager llm = new LinearLayoutManager(this);

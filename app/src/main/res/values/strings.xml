@@ -4,4 +4,16 @@
     <string name="namePreviewCV">Caballo</string>
     <string name="likesPreviewCV">10</string>
     <string name="contentBtnVerLikes">Ver likes</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_about">Acerca de</string>
+    <string name="tituloContacto">Contacto</string>
+    <string name="txtNombreContacto">Tu nombre</string>
+    <string name="txtCorreoContacto">Tu correo electrónico</string>
+    <string name="txtMensajeContacto">Tu mensaje</string>
+    <string name="btnEnviarContacto">Enviar mensaje</string>
+    <string name="tituloBio">Biografía del desarrollador</string>
+    <string name="mFavoritos">Favoritos</string>
+    <string name="autor">Jerson Ochoa</string>
+    <string name="appInfo">Petagram V3</string>
+    <string name="copyright">Derechos Reservados Guatemala 2020</string>
 </resources>
