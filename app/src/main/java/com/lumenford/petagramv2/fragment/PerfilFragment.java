@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lumenford.petagramv2.Mascota;
-import com.lumenford.petagramv2.R;
 import com.lumenford.petagramv2.adapter.MascotaAdaptador;
+import com.lumenford.petagramv2.pojo.Mascota;
+import com.lumenford.petagramv2.R;
 import com.lumenford.petagramv2.adapter.MascotaAdaptador2;
+import com.lumenford.petagramv2.presentador.IPerfilFragmentPresenter;
+import com.lumenford.petagramv2.presentador.PerfilFragmentPresenter;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 
-public class PerfilFragment extends Fragment {
+public class PerfilFragment extends Fragment implements IPerfilFragment {
 
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
-
+    private IPerfilFragmentPresenter presenter;
     public PerfilFragment()
     {
 
@@ -62,45 +63,24 @@ public class PerfilFragment extends Fragment {
 
 
         listaMascotas = (RecyclerView) v.findViewById(R.id.rvPerfil);
-
-
-        GridLayoutManager glm = new GridLayoutManager(getActivity(),3);
-        //LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        //llm.setOrientation(LinearLayoutManager.VERTICAL);
-
-        listaMascotas.setLayoutManager(glm);
-        InicializarMascotas();
-        InicializarAdaptador();
-
+        presenter = new PerfilFragmentPresenter(this, getContext());
         return v;
     }
 
-    public MascotaAdaptador2 adaptador;
-    public void InicializarAdaptador()
-    {
-        adaptador = new MascotaAdaptador2(mascotas, getActivity());
-        listaMascotas.setAdapter(adaptador);
+    @Override
+    public void GenerarGridLayout() {
+        GridLayoutManager glm = new GridLayoutManager(getActivity(),2);
+        listaMascotas.setLayoutManager(glm);
     }
 
-    public void InicializarMascotas()
-    {
-        mascotas = new ArrayList<Mascota>();
+    @Override
+    public MascotaAdaptador2 crearAdaptador2(ArrayList<Mascota> mascotas) {
+        MascotaAdaptador2 adaptador = new MascotaAdaptador2(mascotas, getActivity());
+        return adaptador;
+    }
 
-        mascotas.add(new Mascota("Caballo", 10, R.drawable.caballo));
-        mascotas.add(new Mascota("Cabra", 9, R.drawable.cabra));
-        mascotas.add(new Mascota("Cerdo", 8, R.drawable.cerdo));
-        mascotas.add(new Mascota("Gallo", 7, R.drawable.gallo));
-        mascotas.add(new Mascota("Mono", 6, R.drawable.mono));
-        mascotas.add(new Mascota("Perro", 5, R.drawable.perro));
-        mascotas.add(new Mascota("Serpiente", 4, R.drawable.serpiente));
-        mascotas.add(new Mascota("Tigre", 3, R.drawable.tigre));
-        mascotas.add(new Mascota("Caballo", 10, R.drawable.caballo));
-        mascotas.add(new Mascota("Cabra", 9, R.drawable.cabra));
-        mascotas.add(new Mascota("Cerdo", 8, R.drawable.cerdo));
-        mascotas.add(new Mascota("Gallo", 7, R.drawable.gallo));
-        mascotas.add(new Mascota("Mono", 6, R.drawable.mono));
-        mascotas.add(new Mascota("Perro", 5, R.drawable.perro));
-        mascotas.add(new Mascota("Serpiente", 4, R.drawable.serpiente));
-        mascotas.add(new Mascota("Tigre", 3, R.drawable.tigre));
+    @Override
+    public void InicializarAdaptadorRV2(MascotaAdaptador2 adaptador2) {
+        listaMascotas.setAdapter(adaptador2);
     }
 }

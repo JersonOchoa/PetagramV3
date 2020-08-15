@@ -1,14 +1,20 @@
-package com.lumenford.petagramv2;
+package com.lumenford.petagramv2.pojo;
 
 public class Mascota {
+    private  int id;
     private String nombre;
     private int likes;
     private int foto;
 
-    public Mascota(String nombre, int likes, int foto) {
+    public Mascota(int id, String nombre, int likes, int foto) {
+        this.id = id;
         this.nombre = nombre;
         this.likes = likes;
         this.foto = foto;
+    }
+
+    public Mascota() {
+
     }
 
     public String getNombre() {
@@ -33,5 +39,13 @@ public class Mascota {
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

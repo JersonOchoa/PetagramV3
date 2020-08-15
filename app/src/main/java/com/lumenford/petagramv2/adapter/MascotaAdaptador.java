@@ -12,7 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lumenford.petagramv2.Mascota;
+import com.lumenford.petagramv2.db.ConstructorMascotas;
+import com.lumenford.petagramv2.pojo.Mascota;
 import com.lumenford.petagramv2.R;
 
 import java.util.ArrayList;
@@ -47,10 +48,10 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
             @Override
             public void onClick(View view) {
                 Toast.makeText(activity, "Diste like a " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
-                int auxLikes = mascota.getLikes();
-                auxLikes++;
-                mascota.setLikes(auxLikes);
-                holder.txtLikesCV.setText(String.valueOf(mascota.getLikes()));
+
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.DarLike(mascota);
+                holder.txtLikesCV.setText(String.valueOf(constructorMascotas.ObtenerLikes(mascota)));
 
             }
         });
